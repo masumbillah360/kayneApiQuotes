@@ -3,11 +3,13 @@ const makeReq =() =>{
     .then(res=>res.json())
     .then(data =>diplayQuote(data));
 }
-
-
 const diplayQuote = (qts) =>{
     console.log(qts.quote);
-    // const quotes = qts.quote;
-    // console.log(quotes);
-    document.getElementById('qutoe').innerText = qts.quote;
+    document.getElementById('quote-text').innerText = qts.quote;
+}
+
+const copyText =()=>{
+    const copiedText = document.getElementById('quote-text');
+    navigator.clipboard.writeText(copiedText.innerText);
+    alert("copied");
 }
